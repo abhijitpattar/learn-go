@@ -1,29 +1,53 @@
 package main
 
-import ps "example.com/learn-go/pointer"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+
+	"example.com/learn-go/note"
+)
 
 func main() {
-	/*
-		var revenue float64
-		var expenses float64
-		var taxRate float64
-		fmt.Print("Revenue : ")
-		fmt.Scan(&revenue)
 
-		fmt.Print("Expenses : ")
-		fmt.Scan(&expenses)
+	userNote, err := note.New(getNoteData())
 
-		fmt.Print("Tax Rate : ")
-		fmt.Scan(&taxRate)
+	if err != nil {
+		fmt.Print(err)
+		return
+	}
 
-		ebt := revenue - expenses
-		profit := ebt * (1 - taxRate/100)
-		ratio := ebt / profit
+	userNote.Display()
+	err = userNote.Save()
 
-		fmt.Println("Earnings Before Profit - ", ebt)
-		fmt.Println("Profit - ", profit)
-		fmt.Println("Profit ratio - ", ratio)
-	*/
-	pointer2()
-	ps.Pointer2()
+	if err != nil {
+		fmt.Println("saving the note failed")
+		return
+	}
+
+	fmt.Println("file saved successfully")
+
+}
+
+func getNoteData() (string, string) {
+	title := getUserInput("Note tile :")
+	content := getUserInput("Note Content :")
+	return title, content
+}
+
+func getUserInput(prompt string) string {
+	fmt.Printf("%v ", prompt)
+	reader := bufio.NewReader(os.Stdin)
+	text, err := reader.ReadString('\n')
+
+	if err != nil {
+		fmt.Println(err)
+		return ""
+	}
+
+	text = strings.TrimSuffix(text, "\n")
+	text = strings.TrimSuffix(text, "\r")
+
+	return text
 }
