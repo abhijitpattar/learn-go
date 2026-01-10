@@ -1,26 +1,29 @@
 package main
 
-import "fmt"
+import ps "example.com/learn-go/pointer"
 
 func main() {
-	var revenue float64
-	var expenses float64
-	var taxRate float64
+	/*
+		var revenue float64
+		var expenses float64
+		var taxRate float64
+		fmt.Print("Revenue : ")
+		fmt.Scan(&revenue)
 
-	fmt.Print("Revenue : ")
-	fmt.Scan(&revenue)
+		fmt.Print("Expenses : ")
+		fmt.Scan(&expenses)
 
-	fmt.Print("Expenses : ")
-	fmt.Scan(&expenses)
+		fmt.Print("Tax Rate : ")
+		fmt.Scan(&taxRate)
 
-	fmt.Print("Tax Rate : ")
-	fmt.Scan(&taxRate)
+		ebt := revenue - expenses
+		profit := ebt * (1 - taxRate/100)
+		ratio := ebt / profit
 
-	ebt := revenue - expenses
-	profit := ebt * (1 - taxRate/100)
-	ratio := ebt / profit
-
-	fmt.Println("Earnings Before Profit - ", ebt)
-	fmt.Println("Profit - ", profit)
-	fmt.Println("Profit ratio - ", ratio)
+		fmt.Println("Earnings Before Profit - ", ebt)
+		fmt.Println("Profit - ", profit)
+		fmt.Println("Profit ratio - ", ratio)
+	*/
+	pointer2()
+	ps.Pointer2()
 }
