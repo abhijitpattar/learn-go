@@ -1,4 +1,4 @@
-package note
+package random
 
 import (
 	"encoding/json"
